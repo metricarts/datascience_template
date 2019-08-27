@@ -16,7 +16,7 @@ path_src = paste0(getwd(),"/") # Si se pone rstudioapi::, solo se puede usar des
 path_files = paste0(path_src,"files/")
 project_name = basename(path_src)
 
-# Basic Libraries Entel Framework -----------------------------------------
+# Instalar dftools  -----------------------------------------
 
 if(!require("dftools")){
   if( !"devtools" %in% rownames(installed.packages()) ){
