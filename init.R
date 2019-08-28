@@ -18,13 +18,13 @@ project_name = basename(path_src)
 
 # Instalar dftools  -----------------------------------------
 
-if(!require("dftools")){
+if(!require("metRictools")){
   if( !"devtools" %in% rownames(installed.packages()) ){
     install.packages("devtools")
   }
-  print("Installing dftools...")
-  devtools::install_github("danielfm123/dftools",force=T)
-  library(dftools)
+  print("Installing metRictools...")
+  devtools::install_github("metricarts/metrictools",force=T)
+  library(metrictools)
 }
 
 # Configuraci?n seg?n OS --------------------------------------------------
