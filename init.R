@@ -24,7 +24,7 @@ if(!require("metRictools")){
   }
   print("Installing metRictools...")
   devtools::install_github("metricarts/metrictools",force=T)
-  library(metrictools)
+  library(metRictools)
 }
 
 # Configuraci?n seg?n OS --------------------------------------------------
