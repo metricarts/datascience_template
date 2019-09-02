@@ -84,8 +84,21 @@ odbc_sample = expression({
   dbConnect(odbc(),.connection_string = "ODBC_Connection_String")
 })
 
+# las dos conexiones a continuación funcionan con el driver de linux de sql server y el de windows, 
+#recordar cambiar el nombre de la conexion sql en /etc/odbcinst.ini
 odbc_sql_sample = expression({
-  library("odbc")
+  safeLibrary("odbc")
   dbConnect(odbc(),
             .connection_string = "Driver={SQL Server};Server=1.1.1.1;UID=usuario;PWD=password;Database=basedatos;Port=1433")
+})
+
+odbc_sql_sample2 = expression({
+  safeLibrary("odbc")
+  dbConnect(odbc(), 
+            Driver = "{SQL Server}", 
+            Server = "1.1.1.1", 
+            Database = "base", 
+            UID = "user", 
+            PWD = "password", 
+            Port = 1433)
 })
