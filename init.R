@@ -16,7 +16,7 @@ path_src = paste0(getwd(),"/") # Si se pone rstudioapi::, solo se puede usar des
 path_files = paste0(path_src,"files/")
 project_name = basename(path_src)
 
-# Instalar dftools  -----------------------------------------
+# Instalar metrictools  -----------------------------------------
 
 if(!require("metRictools")){
   if( !"devtools" %in% rownames(installed.packages()) ){
@@ -25,6 +25,17 @@ if(!require("metRictools")){
   print("Installing metRictools...")
   devtools::install_github("metricarts/metrictools",force=T)
   library(metRictools)
+}
+
+# Instalar dftools  -----------------------------------------
+
+if(!require("dftools")){
+  if( !"devtools" %in% rownames(installed.packages()) ){
+    install.packages("devtools")
+  }
+  print("Installing dftools...")
+  devtools::install_github("danielfm123/dftools",force=T)
+  library(dftools)
 }
 
 # Configuraci?n seg?n OS --------------------------------------------------
@@ -71,4 +82,10 @@ odbc_sample = expression({
   safeLibrary("odbc")
   #la ip tb creo que puede ser 200.7.29.203
   dbConnect(odbc(),.connection_string = "ODBC_Connection_String")
+})
+
+odbc_sql_sample = expression({
+  library("odbc")
+  dbConnect(odbc(),
+            .connection_string = "Driver={SQL Server};Server=1.1.1.1;UID=usuario;PWD=password;Database=basedatos;Port=1433")
 })
